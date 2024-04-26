@@ -102,7 +102,7 @@ int alFindPattern(const uint32_t numBytes, const uint8_t data[])
         bigData |= uint64_t(data[k++]) << mPos[8 - numBytes + i];
     }
 
-    // Generate 64-bit mask and set only number of pattern bits
+    // Generate 32-bit mask and set only number of pattern bits
     int bitNo = 32 - countBits(pattern);
     if (bitNo < 0) 
             return -1;

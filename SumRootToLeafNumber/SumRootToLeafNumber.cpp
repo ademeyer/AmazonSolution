@@ -52,7 +52,7 @@ TreeNode* BuildTreeFromArr(const vector<int>& arr)
 
 class Solution
 {
-    int ans{ 0 };
+    long long ans{ 0 };
     void  dfs(TreeNode* root, long long value)
     {
         if (root == NULL) return;
@@ -74,7 +74,7 @@ public:
     {
         if (root == NULL) return 0;
         dfs(root, 0);
-        return ans;
+        return int(ans);
     }
 };
 
