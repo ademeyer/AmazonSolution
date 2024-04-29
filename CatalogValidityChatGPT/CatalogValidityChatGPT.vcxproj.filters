@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AmazonOA01_UARTDriver.cpp">
+    <ClCompile Include="CatalogValidityChatGPT.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

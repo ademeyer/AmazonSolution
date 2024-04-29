@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{293a7920-b517-4a24-9b20-c47eff2dc5f9}</ProjectGuid>
-    <RootNamespace>UARTDriver</RootNamespace>
+    <ProjectGuid>{d2d19839-8ce5-4d55-a18b-394ae5099c5b}</ProjectGuid>
+    <RootNamespace>BipatriteGraph</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>AmazonOA01_UARTDriver</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -128,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AmazonOA01_UARTDriver.cpp" />
+    <ClCompile Include="BipatriteGraph.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

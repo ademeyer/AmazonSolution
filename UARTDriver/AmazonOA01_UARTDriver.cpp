@@ -63,7 +63,14 @@ public:
 
             // wait for start bit
             while (readSate() == 1);
-            delay_us(m_BitLength/2); // why divide by 2??
+            /*
+            * // why divide by 2??
+            * If the bit was sampled at the beginning or the end of the bit and the delay timer timer
+            * ISR/scheduler task was not serviced immediately, invalid data could be detected. Sampling at the half bit
+            * time also allows some margin if there is latency in the detection of the start bit or in the
+            * servicing of future timer ISRs or scheduler tasks.
+            */
+            delay_us(m_BitLength/2); 
 
             for (int j = 0; j < m_DataBit; j++)
             {
