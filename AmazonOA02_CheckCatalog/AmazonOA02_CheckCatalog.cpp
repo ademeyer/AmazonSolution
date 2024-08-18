@@ -53,7 +53,7 @@ bool isCatalogValid(unordered_map<string, vector<string>> catalog)
 
 int main()
 {
-    std::unordered_map<std::string, std::vector<std::string>> catalog = 
+    unordered_map<string, vector<std::string>> catalog = 
     {
         {"Databases", {"Security", "Logging"}},
         {"Security", {"Databases", "Logging"}},
