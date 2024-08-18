@@ -4,12 +4,14 @@
 
 using namespace std;
 
-enum class FileType {
+enum class FileType 
+{
     XML, TXT, JPG, MP3, NONE
 };
 
 // Class to represent files or directories
-class File {
+class File 
+{
 public:
     string name;
     int size;
@@ -20,49 +22,60 @@ public:
     File(string name, int size, FileType type, bool isDirectory)
         : name(name), size(size), type(type), isDirectory(isDirectory) {}
 
-    ~File() {
-        for (File* child : children) {
+    ~File() 
+    {
+        for (File* child : children) 
+        {
             delete child;
         }
     }
 
-    void addChild(File* file) {
+    void addChild(File* file) 
+    {
         children.push_back(file);
     }
 };
 
 // Abstract filter class
-class Filter {
+class Filter 
+{
 public:
     virtual bool apply(const File* file) const = 0;
     virtual ~Filter() {}
 };
 
 // Filter to search files by size
-class SearchBySizeFilter : public Filter {
+class SearchBySizeFilter : public Filter 
+{
     int minSize;
 public:
     SearchBySizeFilter(int size) : minSize(size) {}
-    bool apply(const File* file) const override {
+    bool apply(const File* file) const override 
+    {
         return file->size > minSize;
     }
 };
 
 // Filter to search files by file type
-class SearchByFileType : public Filter {
+class SearchByFileType : public Filter 
+{
     FileType requiredType;
 public:
     SearchByFileType(FileType type) : requiredType(type) {}
-    bool apply(const File* file) const override {
+    bool apply(const File* file) const override 
+    {
         return file->type == requiredType;
     }
 };
 
 // Class to find files based on filters
-class Finder {
+class Finder 
+{
 public:
-    vector<File*> findFiles(const File* directory, const vector<Filter*>& filters) const {
-        if (!directory->isDirectory) {
+    vector<File*> findFiles(const File* directory, const vector<Filter*>& filters) const 
+    {
+        if (!directory->isDirectory) 
+        {
             throw runtime_error("Specified file is not a directory");
         }
 
@@ -72,22 +85,29 @@ public:
     }
 
 private:
-    void dfs(const File* directory, const vector<Filter*>& filters, vector<File*>& results) const {
-        for (const File* file : directory->children) {
-            if (file->isDirectory) {
+    void dfs(const File* directory, const vector<Filter*>& filters, vector<File*>& results) const 
+    {
+        for (const File* file : directory->children) 
+        {
+            if (file->isDirectory) 
+            {
                 dfs(file, filters, results);
             }
             else {
-                if (applyFilters(file, filters)) {
+                if (applyFilters(file, filters)) 
+                {
                     results.push_back(const_cast<File*>(file));
                 }
             }
         }
     }
 
-    bool applyFilters(const File* file, const vector<Filter*>& filters) const {
-        for (const Filter* filter : filters) {
-            if (!filter->apply(file)) {
+    bool applyFilters(const File* file, const vector<Filter*>& filters) const 
+    {
+        for (const Filter* filter : filters) 
+        {
+            if (!filter->apply(file)) 
+            {
                 return false;
             }
         }
@@ -96,14 +116,17 @@ private:
 };
 
 // Function to print the result of file search
-void printResult(const vector<File*>& files) {
-    for (const File* file : files) {
+void printResult(const vector<File*>& files) 
+{
+    for (const File* file : files) 
+    {
         cout << "Filename: " << file->name << "\tSize: " << file->size << " bytes\t"
             << (file->isDirectory ? "Directory" : "File") << endl;
     }
 }
 
-int main() {
+int main() 
+{
     // Setup a simple file system hierarchy
     File root("root", 0, FileType::NONE, true);
     File downloadFolder("Downloads", 0, FileType::NONE, true);
