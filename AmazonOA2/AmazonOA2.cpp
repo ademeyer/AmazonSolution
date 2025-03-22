@@ -31,7 +31,7 @@
 
 #include <cstdint>
 #include <iostream>
-#define USECHATGPTSOLUTION 0
+#define USECHATGPTSOLUTION 1
 
 
 #if USECHATGPSOLUTION

@@ -24,6 +24,7 @@ typedef enum {
 using namespace std;
 FuncStatus_t evaluatePostfix(const size_t postfix_size, const char* postfix[], int32_t* result)
 {
+    if (result == nullptr || postfix == nullptr) return STATUS_INVALID;
     // /* Warning: You can use stdout for debugging, but doing so will cause the test cases to fail. */
     stack<int32_t> st;
 
